@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import java.util.Calendar;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -65,15 +64,12 @@ public class Calendario {
 
     private boolean validarHorario(Cita cita) {
         String horarioCita = cita.getHora();
-        //SimpleDateFormat formato = new SimpleDateFormat("HH:mm");
         final ArrayList<Date> listaHorario = this.listaHorario();
         for (Date d : listaHorario){
             String horaValida = new SimpleDateFormat("HH:mm").format(d);
-            //try {
-                //if (formato.parse(horarioCita).equals(formato.parse(horaValida))) {
-                if (horarioCita.equals(horaValida)) {
-                    return true;
-                }
+            if (horarioCita.equals(horaValida)) {
+                return true;
+            }
         }
         System.out.println("Error: La hora de la cita debe ser entre las 07h00 y las 16h00.");
         return false;
@@ -99,7 +95,7 @@ public class Calendario {
     }
 
     private boolean validarFechaMayorActual(Cita cita) {
-        final DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        //final DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaActual = new Date();
 
         Calendar calen = Calendar.getInstance();
