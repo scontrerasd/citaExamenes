@@ -23,19 +23,17 @@ public class LeeArchivoNuevaCita {
 
 	public Cita leer() throws IOException {
 		File file = new File(rutaArchivo);
-		String ruta = file.getAbsolutePath();
 		
 		BufferedReader br = null;
 		FileReader fileReader = null;
 		
-		String linea = "";
-		String[] partes;
-		Examen examen;
-		Paciente paciente;
-		Apoderado apoderado;
-		Cita cita = new Cita();
-		String fechaCita = "2020-01-01";
-		Integer nuevaCitaenCurso = 0;
+		String 		linea = "";
+		String[] 	partes;
+		Examen 		examen;
+		Paciente 	paciente;
+		Apoderado 	apoderado = new Apoderado();
+		Cita 		cita = new Cita();
+		Integer 	nuevaCitaenCurso = 0;
 		try {
 			fileReader = new FileReader(file);
 			br = new BufferedReader(fileReader);
@@ -75,7 +73,7 @@ public class LeeArchivoNuevaCita {
 												partes[5], 		//tipoPaciente
 												""); 	//IdentificacionApoderado
 					}
-					cita = new Cita(examen, paciente, partes[0], partes[1]);
+					cita = new Cita(examen, paciente, apoderado, partes[0], partes[1]);
 					System.out.println("Cita: " + cita.toString());
 					calendario.agregarCita(cita);
 					return cita;

@@ -1,8 +1,8 @@
 package modelo;
 
-import modelo.Apoderado;
-
 public class Apoderado extends Persona{
+
+    public Apoderado(){};
 
     public Apoderado(String identificacion, String tipoIdentificacion, String nombre,
         String fechaNacimiento, String telefono, String correoElectronico, String tipoPaciente) {

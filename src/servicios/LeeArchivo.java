@@ -22,19 +22,18 @@ public class LeeArchivo {
 
 	public ArrayList<Cita> leer() throws IOException {
 		File file = new File(rutaArchivo);
-		String ruta = file.getAbsolutePath();
 		
 		BufferedReader br = null;
 		FileReader fileReader = null;
 		ArrayList<Cita> citas = new ArrayList<Cita>();
 		
-		String linea = "";
-		String[] partes;
-		Examen examen;
-		Paciente paciente;
-		Apoderado apoderado;
-		Cita cita;
-		String fechaCita = "2020-01-01";
+		String 		linea = "";
+		String[] 	partes;
+		Examen 		examen;
+		Paciente 	paciente;
+		Apoderado 	apoderado = new Apoderado();
+		Cita 		cita;
+		String 		fechaCita = "2020-01-01";
 		try {
 			fileReader = new FileReader(file);
 			br = new BufferedReader(fileReader);
@@ -67,6 +66,7 @@ public class LeeArchivo {
 												  partes[7], 	//telefonoApoderado
 												  "@", //correoElectronicoApoderado
 												  "ADULTO"); //tipoPaciente
+					System.out.println(apoderado.getNombre());
 					} else {
 						paciente = new Paciente(partes[6], 		//identificacion
 												partes[5], 		//tipoIdentificacion
@@ -77,7 +77,7 @@ public class LeeArchivo {
 												partes[4], 		//tipoPaciente
 												""); //IdentificacionApoderado
 					}
-					cita = new Cita(examen, paciente, fechaCita, partes[0]);
+					cita = new Cita(examen, paciente, apoderado, fechaCita, partes[0]);
 					System.out.println("Hora de archivo: " + partes[0]);
 					citas.add(cita);
 				}

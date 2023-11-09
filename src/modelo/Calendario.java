@@ -56,8 +56,8 @@ public class Calendario {
 
     public ArrayList<Date> listaFeriado (){
         try {
-            listaFeriado.add(new SimpleDateFormat("yyyy/MM/dd").parse("2023-08-10"));
-            listaFeriado.add(new SimpleDateFormat("yyyy/MM/dd").parse("2023-11-03"));
+            listaFeriado.add(new SimpleDateFormat("yyyy-MM-dd").parse("2023-08-10"));
+            listaFeriado.add(new SimpleDateFormat("yyyy-MM-dd").parse("2023-11-03"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
