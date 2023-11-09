@@ -1,0 +1,88 @@
+package modelo;
+
+public class Persona {
+    private String Identificacion;
+    private String TipoIdentificacion; //(C)edula , (P) Pasaporte
+    private String Nombre;
+    private String FechaNacimiento;
+    private String Telefono;
+    private String CorreoElectronico;
+    private String TipoPaciente; //ADULTO, PMENOR
+
+    public Persona () {}
+    public Persona(String identificacion, String tipoIdentificacion, String nombre,
+            String fechaNacimiento, String telefono, String correoElectronico, String tipoPaciente) {
+        Identificacion = identificacion;
+        TipoIdentificacion = tipoIdentificacion;
+        Nombre = nombre;
+        FechaNacimiento = fechaNacimiento;
+        Telefono = telefono;
+        CorreoElectronico = correoElectronico;
+        TipoPaciente = tipoPaciente;
+    }
+
+    public String getIdentificacion() {
+        return Identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        Identificacion = identificacion;
+    }
+
+    public String getTipoIdentificacion() {
+        return TipoIdentificacion;
+    }
+
+    public void setTipoIdentificacion(String tipoIdentificacion) {
+        TipoIdentificacion = tipoIdentificacion;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public String getFechaNacimiento() {
+        return FechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        FechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        Telefono = telefono;
+    }
+
+    public String getCorreoElectronico() {
+        return CorreoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        CorreoElectronico = correoElectronico;
+    }
+
+    public String getTipoPaciente() {
+        return TipoPaciente;
+    }
+
+    public void setTipoPaciente(String tipoPaciente) {
+        TipoPaciente = tipoPaciente;
+    }
+
+    @Override
+    public String toString() {
+        return "persona [Identificacion=" + Identificacion + ", TipoIdentificacion=" + TipoIdentificacion + ", Nombre="
+                + Nombre + ", FechaNacimiento=" + FechaNacimiento + ", Telefono=" + Telefono + ", CorreoElectronico=" 
+                + CorreoElectronico + ", TipoPaciente=" + TipoPaciente + "]";
+    }
+    
+}
+
