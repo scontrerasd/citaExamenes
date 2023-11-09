@@ -19,10 +19,11 @@ public class mainCitas {
         EscribeArchivo escribeCitasArchivo = new EscribeArchivo("C:\\Tmp\\lab_output.txt");
 
 		try {
+			citas=leeGuardaCitasExistentes.leer();
+
 			cita=leeGuardaNuevaCitaArchivo.leer();
 			escribeCitasArchivo.escribir_fecha(cita);
 
-			citas=leeGuardaCitasExistentes.leer();
 			for(Cita c:citas){
 				if(!c.getFecha().equals(fechaCitaAnterior)){
 					escribeCitasArchivo.escribir_fecha(c);
