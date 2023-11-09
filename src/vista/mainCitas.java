@@ -14,9 +14,9 @@ public class mainCitas {
 		ArrayList<Cita> citas= new ArrayList<Cita>();
 		String fechaCitaAnterior = "2020-01-01";
 
-        LeeArchivoNuevaCita leeGuardaNuevaCitaArchivo = new LeeArchivoNuevaCita("D:\\Tmp\\lab_input.txt");
-		LeeArchivo leeGuardaCitasExistentes = new LeeArchivo("D:\\Tmp\\lab_input.txt");
-        EscribeArchivo escribeCitasArchivo = new EscribeArchivo("D:\\Tmp\\lab_output.txt");
+        LeeArchivoNuevaCita leeGuardaNuevaCitaArchivo = new LeeArchivoNuevaCita("C:\\Tmp\\lab_input.txt");
+		LeeArchivo leeGuardaCitasExistentes = new LeeArchivo("C:\\Tmp\\lab_input.txt");
+        EscribeArchivo escribeCitasArchivo = new EscribeArchivo("C:\\Tmp\\lab_output.txt");
 
 		try {
 			cita=leeGuardaNuevaCitaArchivo.leer();

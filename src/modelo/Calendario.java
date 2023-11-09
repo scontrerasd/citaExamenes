@@ -71,7 +71,6 @@ public class Calendario {
         final ArrayList<Date> listaHorario = this.listaHorario();
         for (Date d : listaHorario){
             String horaValida = new SimpleDateFormat("HH:mm").format(d);
-            System.out.println("Hora válida: " + horaValida);
             //try {
                 //if (formato.parse(horarioCita).equals(formato.parse(horaValida))) {
                 if (horarioCita.equals(horaValida)) {

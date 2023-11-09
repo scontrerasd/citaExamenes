@@ -40,9 +40,10 @@ public class LeeArchivo {
 			br = new BufferedReader(fileReader);
 			
 			while ((linea = br.readLine()) != null) {
-				if (linea.equals("NUEVA CITA")) {
+				if (linea.equals("") || linea.equals("NUEVA CITA")) {
 					break;
 				}
+				System.out.println("Línea: " + linea);
                 if (linea.equals("2023-10-23") || linea.equals("2023-10-24")) { //PENDIENTE: Quitar fechas quemadas
                     fechaCita = linea;
                 } else {
@@ -76,7 +77,7 @@ public class LeeArchivo {
 												partes[4], 		//tipoPaciente
 												""); //IdentificacionApoderado
 					}
-					cita = new Cita(1, examen, paciente, fechaCita, partes[0]);
+					cita = new Cita(examen, paciente, fechaCita, partes[0]);
 					System.out.println("Hora de archivo: " + partes[0]);
 					citas.add(cita);
 				}

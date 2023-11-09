@@ -78,7 +78,7 @@ public class LeeArchivoNuevaCita {
 												partes[4], 		//tipoPaciente
 												""); //IdentificacionApoderado
 					}
-					cita = new Cita(1, examen, paciente, fechaCita, partes[0]);
+					cita = new Cita(examen, paciente, fechaCita, partes[0]);
 					System.out.println("Cita: " + cita.toString());
 					calendario.agregarCita(cita);
 					return cita;

@@ -11,8 +11,8 @@ public class Cita {
 
     public Cita(){};
 
-    public Cita(int id, Examen examen, Paciente paciente, String fecha, String hora) {
-        this.id = 1;
+    public Cita(Examen examen, Paciente paciente, String fecha, String hora) {
+        this.id = 1; //PENDIENTE: cargar el máximo + 1 de los ids existentes
         this.examen = examen;
         this.paciente = paciente;
         this.fecha = fecha;
