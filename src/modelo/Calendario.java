@@ -135,8 +135,8 @@ public class Calendario {
     }
 
     private boolean validarFeriado(Cita cita) {
-        String fechaCita = cita.getFecha();
-
+        String[] fecha = cita.getFecha().split("\\-");
+        String fechaCita = fecha[1]+"-"+fecha[2];
         SimpleDateFormat formato = new SimpleDateFormat("MM-dd");
 
         final ArrayList<Date> listaFeriado = this.listaFeriado();
