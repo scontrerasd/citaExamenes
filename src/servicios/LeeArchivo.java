@@ -23,7 +23,7 @@ public class LeeArchivo {
 	public ArrayList<Cita> leer() throws IOException {
 		File file = new File(rutaArchivo);
 		
-		BufferedReader br = null;
+		BufferedReader bufferReader = null;
 		FileReader fileReader = null;
 		ArrayList<Cita> citas = new ArrayList<Cita>();
 		
@@ -36,13 +36,12 @@ public class LeeArchivo {
 		String 		fechaCita = "2020-01-01";
 		try {
 			fileReader = new FileReader(file);
-			br = new BufferedReader(fileReader);
+			bufferReader = new BufferedReader(fileReader);
 			
-			while ((linea = br.readLine()) != null) {
+			while ((linea = bufferReader.readLine()) != null) {
 				if (linea.equals("") || linea.equals("NUEVA CITA")) {
 					break;
 				}
-				System.out.println("Línea: " + linea);
                 if (linea.equals("2023-10-23") || linea.equals("2023-10-24")) { //PENDIENTE: Quitar fechas quemadas
                     fechaCita = linea;
                 } else {
@@ -66,7 +65,6 @@ public class LeeArchivo {
 												  partes[7], 	//telefonoApoderado
 												  "@", //correoElectronicoApoderado
 												  "ADULTO"); //tipoPaciente
-					System.out.println(apoderado.getNombre());
 					} else {
 						paciente = new Paciente(partes[6], 		//identificacion
 												partes[5], 		//tipoIdentificacion
@@ -78,7 +76,6 @@ public class LeeArchivo {
 												""); //IdentificacionApoderado
 					}
 					cita = new Cita(examen, paciente, apoderado, fechaCita, partes[0]);
-					System.out.println("Hora de archivo: " + partes[0]);
 					citas.add(cita);
 				}
 			}
@@ -89,11 +86,11 @@ public class LeeArchivo {
 			System.out.println("Error al leer el archivo " + rutaArchivo);
 		} finally {
 			try {
-				if (br != null) {
-					br.close();
+				if (bufferReader != null) {
+					bufferReader.close();
 				}
 			} catch (IOException e) {
-				System.out.println("Error al cerrar el BufferReader br.");
+				System.out.println("Error al cerrar el BufferReader bufferReader.");
 			}
 			try {
 				if (fileReader != null) {

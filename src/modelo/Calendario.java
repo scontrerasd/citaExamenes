@@ -18,7 +18,6 @@ public class Calendario {
     }
     
     public void agregarCita(Cita cita) {
-        System.out.println("Entra a agregar cita.");
         if (validarHorario(cita) && 
             validarCitaSimultanea(cita) &&
             validarFechaMayorActual(cita) &&
@@ -27,7 +26,7 @@ public class Calendario {
                 citas.add(cita);
                 System.out.println("Cita agregada con éxito.");
         } else {
-                System.out.println("Cita no pasa las validaciones.");
+                System.out.println("Error: Cita no pasa las validaciones.");
         }
     }
 
@@ -67,7 +66,6 @@ public class Calendario {
     private boolean validarHorario(Cita cita) {
         String horarioCita = cita.getHora();
         //SimpleDateFormat formato = new SimpleDateFormat("HH:mm");
-        System.out.println("Horario cita: " + horarioCita);
         final ArrayList<Date> listaHorario = this.listaHorario();
         for (Date d : listaHorario){
             String horaValida = new SimpleDateFormat("HH:mm").format(d);
@@ -91,7 +89,6 @@ public class Calendario {
                 break;
             }
         }
-        System.out.println("CUENTA CITAS" + citaSimultanea);
 
         if (citaSimultanea == 0) {
             return true;
@@ -104,8 +101,6 @@ public class Calendario {
     private boolean validarFechaMayorActual(Cita cita) {
         final DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaActual = new Date();
-        System.out.println("Fecha actual: " + formatoFecha.format(fechaActual));
-        System.out.println("Fecha cita: " + cita.getFecha());
 
         Calendar calen = Calendar.getInstance();
         calen.setTime(fechaActual);

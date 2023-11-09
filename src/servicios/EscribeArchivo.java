@@ -17,33 +17,33 @@ public class EscribeArchivo {
 
 	public void escribir_fecha(Cita cita){
 		File file= new File(rutaArchivo);
-		FileWriter fw;
-		PrintWriter pw;
+		FileWriter fileWriter;
+		PrintWriter printWriter;
 		
 		if (file.exists()) {
 		   try {
-			fw = new FileWriter(file,true);
-            pw = new PrintWriter(fw);
-			pw.println(cita.getFecha());
-			if (pw != null) {
-				pw.close();
+			fileWriter = new FileWriter(file,true);
+            printWriter = new PrintWriter(fileWriter);
+			printWriter.println(cita.getFecha());
+			if (printWriter != null) {
+				printWriter.close();
 			}
-			if (fw != null) {
-				fw.close();
+			if (fileWriter != null) {
+				fileWriter.close();
 			}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 		   try {
-			fw = new FileWriter(file);
-	        pw = new PrintWriter(fw);
-			pw.println(cita.getFecha());
-			if (pw != null) {
-				pw.close();
+			fileWriter = new FileWriter(file);
+	        printWriter = new PrintWriter(fileWriter);
+			printWriter.println(cita.getFecha());
+			if (printWriter != null) {
+				printWriter.close();
 			}
-			if (fw != null) {
-				fw.close();
+			if (fileWriter != null) {
+				fileWriter.close();
 			}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -53,33 +53,33 @@ public class EscribeArchivo {
 
 	public void escribir_cita(Cita cita){
 		File file= new File(rutaArchivo);
-		FileWriter fw;
-		PrintWriter pw;
+		FileWriter fileWriter;
+		PrintWriter printWriter;
 		
 		if (file.exists()) {
 		   try {
-			fw = new FileWriter(file,true);
-            pw = new PrintWriter(fw);
-            pw.println(cita.getHora() + "|" + cita.toString());
-			if (pw != null) {
-				pw.close();
+			fileWriter = new FileWriter(file,true);
+            printWriter = new PrintWriter(fileWriter);
+            printWriter.println(cita.getHora() + "|" + cita.toString());
+			if (printWriter != null) {
+				printWriter.close();
 			}
-			if (fw != null) {
-				fw.close();
+			if (fileWriter != null) {
+				fileWriter.close();
 			}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 		   try {
-			fw = new FileWriter(file);
-	        pw = new PrintWriter(fw);
-            pw.println(cita.getHora() + "|" + cita.toString());
-			if (pw != null) {
-				pw.close();
+			fileWriter = new FileWriter(file);
+	        printWriter = new PrintWriter(fileWriter);
+            printWriter.println(cita.getHora() + "|" + cita.toString());
+			if (printWriter != null) {
+				printWriter.close();
 			}
-			if (fw != null) {
-				fw.close();
+			if (fileWriter != null) {
+				fileWriter.close();
 			}
 			} catch (IOException e) {
 				e.printStackTrace();

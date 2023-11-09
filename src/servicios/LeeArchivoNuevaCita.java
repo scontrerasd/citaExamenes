@@ -24,7 +24,7 @@ public class LeeArchivoNuevaCita {
 	public Cita leer() throws IOException {
 		File file = new File(rutaArchivo);
 		
-		BufferedReader br = null;
+		BufferedReader bufferReader = null;
 		FileReader fileReader = null;
 		
 		String 		linea = "";
@@ -36,12 +36,12 @@ public class LeeArchivoNuevaCita {
 		Integer 	nuevaCitaenCurso = 0;
 		try {
 			fileReader = new FileReader(file);
-			br = new BufferedReader(fileReader);
+			bufferReader = new BufferedReader(fileReader);
 			
-			while ((linea = br.readLine()) != null) {
+			while ((linea = bufferReader.readLine()) != null) {
 			if (linea.equals("NUEVA CITA") || nuevaCitaenCurso == 1) {
 				nuevaCitaenCurso = 1;
-				linea = br.readLine();
+				linea = bufferReader.readLine();
 				
 				partes=linea.split("\\|");
 
@@ -74,23 +74,22 @@ public class LeeArchivoNuevaCita {
 												""); 	//IdentificacionApoderado
 					}
 					cita = new Cita(examen, paciente, apoderado, partes[0], partes[1]);
-					System.out.println("Cita: " + cita.toString());
 					calendario.agregarCita(cita);
 					return cita;
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("No existe el archivo " + rutaArchivo);
+			System.out.println("Error: No existe el archivo " + rutaArchivo);
 			
 		} catch (IOException e) {
 			System.out.println("Error al leer el archivo " + rutaArchivo);
 		} finally {
 			try {
-				if (br != null) {
-					br.close();
+				if (bufferReader != null) {
+					bufferReader.close();
 				}
 			} catch (IOException e) {
-				System.out.println("Error al cerrar el BufferReader br.");
+				System.out.println("Error al cerrar el BufferReader bufferReader.");
 			}
 			try {
 				if (fileReader != null) {
