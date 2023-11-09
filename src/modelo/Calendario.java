@@ -104,7 +104,7 @@ public class Calendario {
         Date fechaCita;
         try {
             fechaCita = new SimpleDateFormat("yyyy-MM-dd").parse(cita.getFecha());
-            if (fechaCita.compareTo (fechaActual) < 0) {
+            if (fechaActual.compareTo (fechaCita) < 0) {
                 return true;
             } else {
                 System.out.println("Error: La fecha/hora de la cita debe ser posterior a la fecha/hora actual.");
