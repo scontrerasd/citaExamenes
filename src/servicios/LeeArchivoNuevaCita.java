@@ -45,45 +45,41 @@ public class LeeArchivoNuevaCita {
 				nuevaCitaenCurso = 1;
 				linea = br.readLine();
 				
-				if (linea.equals("2023-10-24")) { //PENDIENTE: Quitar fechas quemadas
-                    fechaCita = linea;
-                } else {
-					partes=linea.split("\\|");
+				partes=linea.split("\\|");
 
-					examen = new Examen (partes[1], partes[2]);
+					examen = new Examen (partes[2], partes[3]);
 
-					if (partes[4].equals("PMENOR")){
-						paciente = new Paciente(partes[6], 		//identificacion
-												partes[5], 		//tipoIdentificacion
-												partes[3], 		//nombrePaciente
-												partes[8], 		//fechaNacimiento
-												partes[7], 		//telefono
+					if (partes[5].equals("PMENOR")){
+						paciente = new Paciente(partes[7], 		//identificacion
+												partes[6], 		//tipoIdentificacion
+												partes[4], 		//nombrePaciente
+												partes[9], 		//fechaNacimiento
+												partes[8], 		//telefono
 												"@", //correoElectronico
-												partes[4], 		//tipoPaciente
-												partes[12]); 	//IdentificacionApoderado
-						apoderado = new Apoderado(partes[12], 	//IdentificacionApoderado
-												  partes[11], 	//tipoIdentificacionApoderado
-												  partes[10], 	//nombreApoderado
-												  partes[13], 	//fechaNacimientoApoderado
-												  partes[7], 	//telefonoApoderado
+												partes[5], 		//tipoPaciente
+												partes[13]); 	//IdentificacionApoderado
+						apoderado = new Apoderado(partes[13], 	//IdentificacionApoderado
+												  partes[12], 	//tipoIdentificacionApoderado
+												  partes[11], 	//nombreApoderado
+												  partes[14], 	//fechaNacimientoApoderado
+												  partes[8], 	//telefonoApoderado
 												  "@", //correoElectronicoApoderado
 												  "ADULTO"); //tipoPaciente
 					} else {
-						paciente = new Paciente(partes[6], 		//identificacion
-												partes[5], 		//tipoIdentificacion
-												partes[3], 		//nombrePaciente
-												partes[8], 		//fechaNacimiento
-												partes[7], 		//telefono
+						paciente = new Paciente(partes[7], 		//identificacion
+												partes[6], 		//tipoIdentificacion
+												partes[4], 		//nombrePaciente
+												partes[9], 		//fechaNacimiento
+												partes[8], 		//telefono
 												"@", //correoElectronico
-												partes[4], 		//tipoPaciente
-												""); //IdentificacionApoderado
+												partes[5], 		//tipoPaciente
+												""); 	//IdentificacionApoderado
 					}
-					cita = new Cita(examen, paciente, fechaCita, partes[0]);
+					cita = new Cita(examen, paciente, partes[0], partes[1]);
 					System.out.println("Cita: " + cita.toString());
 					calendario.agregarCita(cita);
 					return cita;
 				}
-			}
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("No existe el archivo " + rutaArchivo);
