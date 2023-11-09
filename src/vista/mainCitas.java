@@ -20,9 +20,7 @@ public class mainCitas {
 
 		try {
 			citas=leeGuardaCitasExistentes.leer();
-
 			cita=leeGuardaNuevaCitaArchivo.leer();
-			escribeCitasArchivo.escribir_fecha(cita);
 
 			for(Cita c:citas){
 				if(!c.getFecha().equals(fechaCitaAnterior)){
@@ -31,6 +29,9 @@ public class mainCitas {
 				escribeCitasArchivo.escribir_cita(c);
 				fechaCitaAnterior = c.getFecha();
             };
+			escribeCitasArchivo.escribir_fecha(cita);
+			escribeCitasArchivo.escribir_cita(cita);
+
 		} catch (IOException e){
 			System.out.println("Error al leer o escribir el archivo.");
 		}
